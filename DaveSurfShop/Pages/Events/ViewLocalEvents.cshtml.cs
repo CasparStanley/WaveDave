@@ -18,14 +18,19 @@ namespace DaveSurfShop.Pages.Events
         public ViewLocalEventsModel(DBGenericService<LocalEvent> service)
         {
             Service = service;
-            Events = Service.GetObjectsAsync().Result.ToList();
 
-            // FIRST TIME
-            //MockData.MockData mockData = new MockData.MockData();
-            //foreach (var obj in mockData.GetEvents())
-            //{
-            //    Service.AddObjectAsync(obj);
-            //}
+            if (Service.GetObjectsAsync().Result == null)
+            {
+                MockData.MockData mockData = new MockData.MockData();
+                foreach (var obj in mockData.GetEvents())
+                {
+                    Service.AddObjectAsync(obj);
+                }
+            }
+            else
+            {
+                Events = Service.GetObjectsAsync().Result.ToList();
+            }
         }
 
         public IActionResult OnGet()

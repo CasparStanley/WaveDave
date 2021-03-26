@@ -7,5 +7,6 @@ namespace DaveSurfShop.MockData
 {
     public class MockData
     {
+        // Michael was here
     }
 }

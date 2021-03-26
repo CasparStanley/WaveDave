@@ -5,17 +5,27 @@ using System.Threading.Tasks;
 using DaveSurfShop.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using DaveSurfShop.MockData;
 
 namespace DaveSurfShop.Pages.Events
 {
     public class ViewLocalEventsModel : PageModel
     {
-        List<LocalEvent> Events;
-        DBGenericService<LocalEvent> Service;
+        public List<LocalEvent> Events;
+
+        private DBGenericService<LocalEvent> Service;
 
         public ViewLocalEventsModel(DBGenericService<LocalEvent> service)
         {
             Service = service;
+            Events = Service.GetObjectsAsync().Result.ToList();
+
+            // FIRST TIME
+            //MockData.MockData mockData = new MockData.MockData();
+            //foreach (var obj in mockData.GetEvents())
+            //{
+            //    Service.AddObjectAsync(obj);
+            //}
         }
 
         public IActionResult OnGet()

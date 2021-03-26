@@ -1,3 +1,4 @@
+using DaveSurfShop.Model;
 using DaveSurfShop.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +28,8 @@ namespace DaveSurfShop
             services.AddRazorPages();
 
             services.AddSingleton<DBGenericService<LocalEvent>, DBGenericService<LocalEvent>>();
+
+            services.AddDbContext<ObjectDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

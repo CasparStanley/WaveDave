@@ -27,10 +27,8 @@ namespace DaveSurfShop.Pages.Events
                     Service.AddObjectAsync(obj);
                 }
             }
-            else
-            {
-                Events = Service.GetObjectsAsync().Result.ToList();
-            }
+
+            Events = Service.GetObjectsAsync().Result.ToList();
         }
 
         public IActionResult OnGet()

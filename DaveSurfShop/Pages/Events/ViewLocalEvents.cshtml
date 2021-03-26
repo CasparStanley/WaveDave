@@ -2,17 +2,17 @@
 @model DaveSurfShop.Pages.Events.ViewLocalEventsModel
 @{
     <br />
-    <h1>Computer Items</h1>
+    <h1>Upcoming Local Events</h1>
     <br />
     <div class="row">
         <div class="col-4"><h5>Search Name</h5></div>
-        <div class="col-4"><h5>Filter Price</h5></div>
+        @*<div class="col-4"><h5>Filter Date</h5></div>*@
         <div class="col-4"></div>
     </div>
     <div class="row">
         <div class="col-4">
             <form method="post" class="form-inline">
-                <input asp-for="@Model.SearchString" class="form-control mr-1" placeholder="Enter search term" />
+                <input @*asp-for="@Model.SearchString"*@ class="form-control mr-1" placeholder="Enter search term" />
                 <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary" />
             </form>
         </div>
@@ -23,12 +23,12 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Min</span>
                     </div>
-                    <input asp-for="@Model.MinPrice" class="form-control mr-1" />
+                    <input @*asp-for="@Model.MinPrice"*@ class="form-control mr-1" />
 
                     <div class="input-group-prepend">
                         <span class="input-group-text">Max</span>
                     </div>
-                    <input asp-for="@Model.MaxPrice" class="form-control mr-1" />
+                    <input @*asp-for="@Model.MaxPrice"*@ class="form-control mr-1" />
                     <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary" />
                 </div>
             </form>
@@ -69,7 +69,7 @@
                     <th>
                         <div class="d-flex justify-content-between p-0">
                             <div>
-                                <h5>Price </h5>
+                                <h5>Date </h5>
                             </div>
                             <div>
                                 <a data-toggle="tooltip" title="Sort By Price" asp-page-handler="SortByPrice"><i class="fa fa-angle-up"></i></a>
@@ -83,37 +83,37 @@
                 </tr>
             </thead>
             <tbody>
-                @if (@Model.Items != null)
-                {
-                    foreach (var item in Model.Items)
-                    {
+                @*@if (@Model.Items != null)
+                {*@
+                    @*foreach (var item in Model.Items)
+                    {*@
                         <tr class="btn-secondary">
                             <td>
-                                @item.Id
+                                @*@*@LocalEvent.Id
                             </td>
                             <td>
-                                @item.Name
+                                @*@*@LocalEvent.Name
                             </td>
                             <td>
-                                @item.Price
+                                @*@*@LocalEvent.Date
                             </td>
                             <td>
                                 <!-- Call to action buttons -->
                                 <ul class="list-inline m-0">
                                     <li class="list-inline-item">
-                                        <a class="btn btn-success btn-sm" type="button" name="itemId" value="@item.Id" data-toggle="tooltip" title="Add to Cart" asp-page="" asp-page-handler="Cart"><i class="fa fa-cart-plus"></i></a>
+                                        <a class="btn btn-success btn-sm" type="button" name="itemId" @*value="@item.Id"*@ data-toggle="tooltip" title="Add to Cart" asp-page="" asp-page-handler="Cart"><i class="fa fa-cart-plus"></i></a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="btn btn-primary btn-sm" type="button" data-toggle="tooltip" title="Edit" asp-page="EditItem" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-primary btn-sm" type="button" data-toggle="tooltip" title="Edit" asp-page="EditItem"><i class="fa fa-edit"></i></a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="btn btn-danger btn-sm " type="button" data-toggle="tooltip" data-placement="top" title="Delete" asp-page="DeleteItem" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                                        <a class="btn btn-danger btn-sm " type="button" data-toggle="tooltip" data-placement="top" title="Delete" asp-page="DeleteItem"><i class="fa fa-trash"></i></a>
                                     </li>
                                 </ul>
                             </td>
                         </tr>
-                    }
-                }
+                    @*}
+                }*@
             </tbody>
         </table>
     </div>

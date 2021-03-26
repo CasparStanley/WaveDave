@@ -20,7 +20,7 @@ namespace DaveSurfShop.Pages.Events
 
         public IActionResult OnGet()
         {
-            Events = Service.GetObjectsAsync().Result.ToList();
+            //Events = Service.GetObjectsAsync().Result.ToList();
             return Page();
         }
     }

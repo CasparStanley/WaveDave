@@ -12,6 +12,11 @@ namespace DaveSurfShop
         public DateTime DateAndTime { get; set; }
         public string Location { get; set; }
 
+        public LocalEvent()
+        {
+
+        }
+
         public LocalEvent(string name, DateTime eventDateTime, string location)
         {
             Name = name;

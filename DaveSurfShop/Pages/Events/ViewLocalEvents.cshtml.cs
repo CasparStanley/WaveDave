@@ -19,7 +19,7 @@ namespace DaveSurfShop.Pages.Events
         {
             Service = service;
 
-            if (Service.GetObjectsAsync().Result == null)
+            if (Service.GetObjectsAsync().Result.ToList().Count <= 0)
             {
                 MockData.MockData mockData = new MockData.MockData();
                 foreach (var obj in mockData.GetEvents())

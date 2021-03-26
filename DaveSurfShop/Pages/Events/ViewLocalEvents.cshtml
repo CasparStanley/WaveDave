@@ -83,19 +83,19 @@
                 </tr>
             </thead>
             <tbody>
-                @*@if (@Model.Items != null)
-                {*@
-                    @*foreach (var item in Model.Items)
-                    {*@
+                @if (@Model.Events != null)
+                {
+                    foreach (var evt in Model.Events)
+                    {
                         <tr class="btn-secondary">
                             <td>
-                                @*@*@LocalEvent.Id
+                                @evt.ID
                             </td>
                             <td>
-                                @*@*@LocalEvent.Name
+                                @evt.Name
                             </td>
                             <td>
-                                @*@*@LocalEvent.Date
+                                @evt.DateAndTime.Date
                             </td>
                             <td>
                                 <!-- Call to action buttons -->
@@ -112,8 +112,8 @@
                                 </ul>
                             </td>
                         </tr>
-                    @*}
-                }*@
+                    }
+                }
             </tbody>
         </table>
     </div>
